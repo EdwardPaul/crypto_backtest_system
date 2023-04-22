@@ -1,5 +1,6 @@
-from api.services.historical_data_service import HistoricalDataService
-from api.repositories.historical_data_repository import HistoricalDataRepository
+from crypto_backtest_system.api.services.historical_data_service import HistoricalDataService
+from crypto_backtest_system.api.repositories.historical_data_repository import HistoricalDataRepository
+from crypto_backtest_system.models.frequency import Frequency
 
 from typing import Optional
 import datetime

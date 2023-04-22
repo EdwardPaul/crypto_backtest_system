@@ -1,9 +1,9 @@
 from itertools import product
 import pandas as pd
 
-from backtest.backtester import Backtester
-from services.strategy_service import StrategyService
-from services.historical_data_service import HistoricalDataService
+from crypto_backtest_system.backtest.backtester import Backtester
+from crypto_backtest_system.services.strategy_service import StrategyService
+from crypto_backtest_system.services.historical_data_service import HistoricalDataService
 
 
 class BacktestSystem:
