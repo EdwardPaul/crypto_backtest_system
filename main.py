@@ -20,7 +20,9 @@ class BacktestSystem:
         self._historical_data_service = HistoricalDataService()
         self._strategy_service = StrategyService()
         self._backtester = Backtester()
+        self._metric_calculator = MetricCalculator()
         self._strategies = self._strategy_service.get_strategies()
+        self._strategies_list = self._strategy_service.list_strategies()
 
     def _init_configs(self) -> None:
         self._start_times = self._config.start_times
@@ -37,10 +39,14 @@ class BacktestSystem:
                 end_time = price_data_parameter[1],
                 frequency = price_data_parameter[2]
             )
-            for strategy in self._strategies:
-                strategy_name = strategy.__class__.__name__
+            # self._backtester.run(historical_data, self._strategy_configs)
+            # for strategy in self._strategies:
+            # strategy_config = self._filter_configs_by_strategy()
+            for strategy_name in self._strategies_list:
+                strategy = self._get_strategy_by_name(strategy_name)
                 result = self._backtester.run(historical_data, strategy)
-                self._save_result(result, strategy_name)
+                result_metrics = self._metric_calculator.get_result_metrics(historical_data, result)
+                self._save_result(result_metrics)
 
 
 # Press the green button in the gutter to run the script.
