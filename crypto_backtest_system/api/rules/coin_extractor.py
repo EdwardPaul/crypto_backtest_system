@@ -1,9 +1,10 @@
 from abc import ABCMeta
 from abc import abstractmethod
+
 import pandas as pd
 
 
-class Backtester(metaclass=ABCMeta):
+class CoinExtractor(metaclass=ABCMeta):
     @abstractmethod
-    def run(self, price_data: pd.DataFrame) -> dict[str, pd.DataFrame]:
+    def get_coins(self, positions_df: pd.DataFrame) -> list[str]:
         pass

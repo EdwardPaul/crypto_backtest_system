@@ -2,8 +2,9 @@ import datetime
 from abc import ABCMeta
 from abc import abstractmethod
 from typing import Optional
-
 import pandas as pd
+
+from crypto_backtest_system.models.frequency import Frequency
 
 
 class HistoricalDataService(metaclass=ABCMeta):

@@ -12,3 +12,7 @@ class StrategyService(metaclass=ABCMeta):
     @abstractmethod
     def list_strategies(self) -> list[str]:
         pass
+
+    @abstractmethod
+    def get_strategy_by_name(self, strategy_name: str) -> Strategy:
+        pass
