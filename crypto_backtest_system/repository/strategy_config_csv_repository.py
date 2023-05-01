@@ -9,4 +9,3 @@ class StrategyConfigCsvRepository(StrategyConfigRepository):
 
     def get_strategy_configs(self) -> pd.DataFrame:
         return self._strategy_config
-    
